@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Unicode转换小工具</title>
+		<script type="text/javascript">
+			//A,B,C,D,E,F
+			function fencode(){
+				var text = document.getElementById( 'from' ).value;
+				var basedtxt = escape(text);
+				var finalresult = "";
+				for (var i=0;i < basedtxt.length;i++)
+				{
+					var tmp = basedtxt.substr(i,1);
+					if(tmp=="%") {
+						finalresult = finalresult + "\\";
+					} else {
+						finalresult = finalresult + tmp;
+					}
+				}
+				document.getElementById("to").value = finalresult;
+			}
+			function fdecode(){
+				var text = document.getElementById( 'to' ).value;
+				var basedtxt = unescape(text);
+				document.getElementById("from").value = finalt;
+			}
+		</script>
+	</head>
+	<body>
+		<h1><center>Unicode转换</center></h1>
+		<hr>
+		<center>
+			<textarea cols="125" rows="15" style="resize:none" id="from">原文</textarea>
+			<br>
+			<br>
+			<button onclick="fencode()">加码</button><br><br><button onclick="fdecode()">解码</button>
+			<br>
+			<br>
+			<textarea cols="125" rows="15" style="resize:none" id="to">Unicode</textarea>
+		</center>
+	</body>
+</html>
