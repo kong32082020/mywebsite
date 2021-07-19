@@ -25,6 +25,7 @@
 				background: #1abc9c;
 				color: white;
 				height: 50px;
+				weight: 95%;
 				text-align: center;
 				padding: 0px 15px;
 				font-size: 25px;
@@ -35,16 +36,47 @@
 				margin-top: 15px;
 				border-color: #c6cede;
 				font-size: 25px;
-				width: 75%;
+				width: 49%;
+				height: 80%;
 			}
 			.buttons {
-				margin-top: 20px;
-				margin-bottom: 20px;
-				width: 50px;
+				margin-top: 5px;
+				width: 50px
+			}
+			.buttxt {
+				line-height: 250%;
+				font-size: 15px;
+			}
+			.deafulttxt1 {
+				color: #c0c1c4;
+				position: absolute;
+				top: 45px;
+				left: 10px;
+				font-size: 25px;
+			}
+			.deafulttxt2 {
+				color: #c0c1c4;
+				position: absolute;
+				top: 45px;
+				left: 50%;
+				font-size: 25px;
 			}
 		</style>
 		<script type="text/javascript">
-			//A,B,C,D,E,F
+			var deftxt1 = document.getElementsByClassName("deafulttxt1")
+			var deftxt2 = document.getElementsByClassName("deafulttxt2")
+			function hide_def1(){
+				deftxt1.item(0).hidden = true
+			}
+			function show_def1(){
+				deftxt1.item(0).hidden = false
+			}
+			function hide_def2(){
+				deftxt2.item(0).hidden = true
+			}
+			function show_def2(){
+				deftxt2.item(0).hidden = false
+			}
 			function fencode(){
 				var text = document.getElementById( 'from' ).value;
 				var basedtxt = escape(text);
@@ -80,21 +112,18 @@
 	</head>
 	<body>
 		<div class="header">
-			<a href=# class="return">返回</a>
+			<a href="../../index.html" class="return">返回</a>
 			<div class="caption">Unicode转换</div>
 		</div>
-		<center>
-			<textarea rows="15" style="resize:none" id="from" class="textbox">原文</textarea>
-			<br>
-			<h4>
-				<div class="buttons">
-					<nobr>
-					<button onclick="fencode()" class="button1">加码</button>
-					<button onclick="fdecode()" class="button2">解码</button>
-					</nobr>
-				</div>
-			</h4>
-			<textarea rows="15" style="resize:none" id="to" class="textbox">Unicode</textarea>
-		</center>
+		<nobr>
+			<textarea onfocus="hide_def1()" onblur="show_def1()" rows="15" style="resize:none" id="from" class="textbox"></textarea>
+			<p class="deafulttxt1">原文</p>
+			<textarea onfocus="hide_def2()" onblur="show_def2()" rows="15" style="resize:none" id="to" class="textbox"></textarea>
+			<p class="deafulttxt2">Unicode</p>
+			<div class="buttons">
+				<button onclick="fencode()" class="button1"><div class="buttxt">中文转Unicode</div></button>
+				<button onclick="fdecode()" class="button2"><div class="buttxt">Unicode转中文</div></button>
+			</div>
+		</nobr>
 	</body>
 </html>
