@@ -63,54 +63,23 @@
 			}
 		</style>
 		<script type="text/javascript">
-			var deftxt1 = document.getElementsByClassName("deafulttxt1")
-			var deftxt2 = document.getElementsByClassName("deafulttxt2")
-			function hide_def1(){
-				deftxt1.item(0).hidden = true
-			}
-			function show_def1(){
-				if(deftxt1.item(0).textContent==""){
-					deftxt1.item(0).hidden = false
+			function find(){
+				var conn = new ActiveXObject("ADODB.Connection");
+				conn.Open("DBQ=./data.mdb;DRIVER={Microsoft Access Driver (*.mdb)};");
+				var rs = new ActiveXObject("ADODB.Recordset");
+				var sql="select * from Tabel";
+				rs.open(sql, conn);
+				var html="";
+				while(!rs.EOF)
+				{ 
+					html=html+rs.Fields("Tag")+" "+rs.Fields("URL");
+					rs.moveNext();
 				}
-			}
-			function hide_def2(){
-				deftxt2.item(0).hidden = true
-			}
-			function show_def2(){
-				if(deftxt2.item(0).textContent==""){
-					deftxt2.item(0).hidden = false
-				}
-			}
-			function fencode(){
-				var text = document.getElementById( 'from' ).value;
-				var basedtxt = escape(text);
-				var finalresult = "";
-				for (var i=0;i < basedtxt.length;i++)
-				{
-					var tmp = basedtxt.substr(i,1);
-					if(tmp=="%") {
-						finalresult = finalresult + "\\";
-					} else {
-						finalresult = finalresult + tmp;
-					}
-				}
-				document.getElementById("to").value = finalresult;
-			}
-			function fdecode(){
-				var finalresult = "";
-				var basedtxt = "";
-				var text = document.getElementById( 'to' ).value;
-				for (var i=0;i < text.length;i++)
-				{
-					var tmp = text.substr(i,1);
-					if(tmp=="\\") {
-						basedtxt = basedtxt + "%";
-					} else {
-						basedtxt = basedtxt + tmp;
-					}
-				}
-				var finalresult = unescape(basedtxt);
-				document.getElementById("from").value = finalresult;
+				document.write(html);
+				rs.close();
+				rs = null;
+				conn.close();
+				conn = null;
 			}
 		</script>
 	</head>
@@ -125,7 +94,7 @@
 			<textarea onfocus="hide_def2()" onblur="show_def2()" rows="15" style="resize:none" id="to" class="textbox"></textarea>
 			<p class="deafulttxt2">Unicode</p>
 			<div class="buttons">
-				<button onclick="fencode()" class="button1"><div class="buttxt">中文转Unicode</div></button>
+				<button onclick="find()" class="button1"><div class="buttxt">中文转Unicode</div></button>
 				<button onclick="fdecode()" class="button2"><div class="buttxt">Unicode转中文</div></button>
 			</div>
 		</nobr>
