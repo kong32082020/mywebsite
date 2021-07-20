@@ -36,7 +36,7 @@
 				margin-top: 15px;
 				border-color: #c6cede;
 				font-size: 25px;
-				width: 49%;
+				width: 50%;
 				height: 80%;
 			}
 			.buttons {
@@ -58,7 +58,7 @@
 				color: #c0c1c4;
 				position: absolute;
 				top: 45px;
-				left: 50%;
+				left: 50.5%;
 				font-size: 25px;
 			}
 		</style>
@@ -70,17 +70,21 @@
 			var deftxt1 = document.getElementsByClassName("deafulttxt1")
 			var deftxt2 = document.getElementsByClassName("deafulttxt2")
 			function hide_def1(){
-				deftxt1.item(0).hidden = true
-			}
+				deftxt1.item(0).hidden = true;
+			};
 			function show_def1(){
-				deftxt1.item(0).hidden = false
-			}
+				if(document.getElementById("from").value==""){
+					deftxt1.item(0).hidden = false;
+				}
+			};
 			function hide_def2(){
-				deftxt2.item(0).hidden = true
-			}
+				deftxt2.item(0).hidden = true;
+			};
 			function show_def2(){
-				deftxt2.item(0).hidden = false
-			}
+				if(document.getElementById("to").value==""){
+					deftxt2.item(0).hidden = false;
+				}
+			};
 			function fencode(){
 				var debug = 0;
 				var text = document.getElementById( 'from' ).value;

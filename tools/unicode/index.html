@@ -36,12 +36,12 @@
 				margin-top: 15px;
 				border-color: #c6cede;
 				font-size: 25px;
-				width: 49%;
+				width: 50%;
 				height: 80%;
 			}
 			.buttons {
 				margin-top: 5px;
-				width: 50px
+				width: 50px;
 			}
 			.buttxt {
 				line-height: 250%;
@@ -58,29 +58,47 @@
 				color: #c0c1c4;
 				position: absolute;
 				top: 45px;
-				left: 50%;
+				left: 50.5%;
 				font-size: 25px;
 			}
 		</style>
 		<script type="text/javascript">
-			var deftxt1 = document.getElementsByClassName("deafulttxt1")
-			var deftxt2 = document.getElementsByClassName("deafulttxt2")
+			var deftxt1 = document.getElementsByClassName("deafulttxt1");
+			var deftxt2 = document.getElementsByClassName("deafulttxt2");
+			var txtbox1 = document.getElementById("from");
+			var txtbox2 = document.getElementById("to");
 			function hide_def1(){
-				deftxt1.item(0).hidden = true
-			}
+				deftxt1.item(0).hidden = true;
+			};
 			function show_def1(){
-				if(deftxt1.item(0).textContent==""){
-					deftxt1.item(0).hidden = false
+				if(document.getElementById("from").value==""){
+					deftxt1.item(0).hidden = false;
 				}
-			}
+			};
 			function hide_def2(){
-				deftxt2.item(0).hidden = true
-			}
+				deftxt2.item(0).hidden = true;
+			};
 			function show_def2(){
-				if(deftxt2.item(0).textContent==""){
-					deftxt2.item(0).hidden = false
+				if(document.getElementById("to").value==""){
+					deftxt2.item(0).hidden = false;
 				}
-			}
+			};
+			function hs_def1(){
+				if(document.getElementById("from").value==""){
+					deftxt1.item(0).hidden = false;
+				}
+				else{
+					deftxt1.item(0).hidden = true;
+				}
+			};
+			function hs_def2(){
+				if(document.getElementById("to").value==""){
+					deftxt2.item(0).hidden = false;
+				}
+				else{
+					deftxt2.item(0).hidden = true;
+				}
+			};
 			function fencode(){
 				var text = document.getElementById( 'from' ).value;
 				var basedtxt = escape(text);
@@ -95,7 +113,8 @@
 					}
 				}
 				document.getElementById("to").value = finalresult;
-			}
+				hs_def2()
+			};
 			function fdecode(){
 				var finalresult = "";
 				var basedtxt = "";
@@ -111,7 +130,8 @@
 				}
 				var finalresult = unescape(basedtxt);
 				document.getElementById("from").value = finalresult;
-			}
+				hs_def1()
+			};
 		</script>
 	</head>
 	<body>
