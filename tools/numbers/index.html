@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>语气词加密</title>
+		<title>数字加密</title>
 		<style type="text/css">
 			.header {
 				display: inline;
@@ -63,10 +63,6 @@
 			}
 		</style>
 		<script type="text/javascript">
-			//呀、呢、吗、啊、哦、噢、哼、哎、了、啊
-			//1、2、3、4、5、6、7、8、9、10
-			//! ？，。: ;
-			//A,B,C,D,E,F
 			var deftxt1 = document.getElementsByClassName("deafulttxt1")
 			var deftxt2 = document.getElementsByClassName("deafulttxt2")
 			function hide_def1(){
@@ -105,52 +101,52 @@
 						var tmp2 = basedtxt.substr(j,1);
 						switch(tmp2){
 							case "1":
-								newbase = newbase + "呀";
+								newbase = newbase + "0";
 								break;
 							case "2":
-								newbase = newbase + "呢";
+								newbase = newbase + "1";
 								break;
 							case "3":
-								newbase = newbase + "吗";
+								newbase = newbase + "2";
 								break;
 							case "4":
-								newbase = newbase + "啊";
+								newbase = newbase + "3";
 								break;
 							case "5":
-								newbase = newbase + "哦";
+								newbase = newbase + "4";
 								break;
 							case "6":
-								newbase = newbase + "噢";
+								newbase = newbase + "5";
 								break;
 							case "7":
-								newbase = newbase + "哼";
+								newbase = newbase + "6";
 								break;
 							case "8":
-								newbase = newbase + "哎";
+								newbase = newbase + "7";
 								break;
 							case "9":
-								newbase = newbase + "了";
+								newbase = newbase + "8";
 								break;
 							case "0":
-								newbase = newbase + "唉";
+								newbase = newbase + "9";
 								break;
 							case "A":
-								newbase = newbase + "，";
+								newbase = newbase + "+";
 								break;
 							case "B":
-								newbase = newbase + "。";
+								newbase = newbase + "-";
 								break;
 							case "C":
-								newbase = newbase + "：";
+								newbase = newbase + "×";
 								break;
 							case "D":
-								newbase = newbase + "！";
+								newbase = newbase + "÷";
 								break;
 							case "E":
-								newbase = newbase + "？";
+								newbase = newbase + "(";
 								break;
 							case "F":
-								newbase = newbase + "；";
+								newbase = newbase + "%";
 								break;
 							default:
 								newbase = newbase + tmp2
@@ -169,52 +165,52 @@
 						var tmp2 = text.substr(j,1);
 						console.log(j,tmp2);
 						switch(tmp2){
-							case "呀":
+							case "0":
 								newbase = newbase + "1";
 								break;
-							case "呢":
+							case "1":
 								newbase = newbase + "2";
 								break;
-							case "吗":
+							case "2":
 								newbase = newbase + "3";
 								break;
-							case "啊":
+							case "3":
 								newbase = newbase + "4";
 								break;
-							case "哦":
+							case "4":
 								newbase = newbase + "5";
 								break;
-							case "噢":
+							case "5":
 								newbase = newbase + "6";
 								break;
-							case "哼":
+							case "6":
 								newbase = newbase + "7";
 								break;
-							case "哎":
+							case "7":
 								newbase = newbase + "8";
 								break;
-							case "了":
+							case "8":
 								newbase = newbase + "9";
 								break;
-							case "唉":
+							case "9":
 								newbase = newbase + "0";
 								break;
-							case "，":
+							case "+":
 								newbase = newbase + "a";
 								break;
-							case "。":
+							case "-":
 								newbase = newbase + "b";
 								break;
-							case "：":
+							case "×":
 								newbase = newbase + "c";
 								break;
-							case "！":
+							case "÷":
 								newbase = newbase + "d";
 								break;
-							case "？":
+							case "(":
 								newbase = newbase + "e";
 								break;
-							case "；":
+							case "%":
 								newbase = newbase + "f";
 								break;
 							default:
@@ -241,7 +237,7 @@
 	<body>
 		<div class="header">
 			<a href="../../index.html" class="return">返回</a>
-			<div class="caption">语气词加密</div>
+			<div class="caption">数字加密</div>
 		</div>
 		<nobr>
 			<textarea onfocus="hide_def1()" onblur="show_def1()" rows="15" style="resize:none" id="from" class="textbox"></textarea>
