@@ -1,0 +1,14 @@
+.header {
+	display: inline;
+}
+.caption {
+				background: #1abc9c;
+				color: white;
+				height: 50px;
+				width: 95%;
+				text-align: center;
+				padding: 0px 15px;
+				font-size: 25px;
+				font-weight: bold;
+				line-height: 50px;
+			}
